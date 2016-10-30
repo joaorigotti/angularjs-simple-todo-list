@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html ng-app="todo">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Todo list with AngularJS</title>
+  <link rel="stylesheet" media="screen" href="assets/components/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" media="screen" href="css/app-styles.css">
+  <base href="/">
+</head>
+<body ng-controller="TodoController">
+
+  <div class="container">
+    <div class="panel panel-default">
+      <div class="panel-heading"><h2 class="reset-margin">To do list</h2></div>
+
+      <div class="panel-body">
+        <ul class="list-group reset-margin">
+          <todo-item></todo-item>
+        </ul>
+      </div>
+
+      <div class="panel-footer clearfix">
+        <form ng-submit="addTask()">
+          <div class="input-group col-xs-8 pull-left">
+            <input type="text" class="form-control input-xxlarge" aria-label="My task" placeholder="my task..." ng-model="tasks.new">
+
+            <div class="input-group-btn">
+              <button class="btn btn-primary" type="submit" ng-disabled="tasks.new.length <= 0">Add</button>
+            </div>
+          </div>
+        </form>
+
+        <button class="btn btn-default pull-right" type="button" ng-click="clearTasks()" ng-disabled="tasks.list.length <= 0">Clear list</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/bundle.min.js"></script>
+</body>
+</html>

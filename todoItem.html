@@ -1,0 +1,10 @@
+<li class="list-group-item" ng-class="{'list-group-item-success': task.done}" ng-repeat="task in tasks.list">
+  {{task.description}}
+
+  <div class="pull-right">
+    <button class="btn btn-primary btn-xs" type="button" ng-class="{'btn-success': task.done}" ng-click="taskDone($index)" ng-disabled="task.done">Done!</button>
+    <button class="btn btn-danger btn-xs" type="button" ng-click="removeTask($index)" ng-disabled="task.done">Delete!</button>
+  </div>
+</li>
+
+<li class="list-group-item list-group-item-info" ng-if="tasks.list.length <= 0"><em>Nothing to do...</em></li>
